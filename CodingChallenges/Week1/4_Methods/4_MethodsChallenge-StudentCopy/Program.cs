@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace _4_MethodsChallenge
 {
@@ -23,30 +24,89 @@ namespace _4_MethodsChallenge
 
         public static string GetName()
         {
-            throw new NotImplementedException();
+            System.Console.WriteLine("Please type your name");
+            return Console.ReadLine();
         }
 
         public static void GreetFriend(string name)
         {
             //Greeting should be: Hello, nameVar. You are my friend
             //Ex: Hello, Jim. You are my friend
-            throw new NotImplementedException();
+            System.Console.WriteLine($"Hello, {name}. You are my friend");
         }
 
         public static double GetNumber()
         {
             //Should throw FormatException if the user did not input a number
-            throw new NotImplementedException();
+            System.Console.WriteLine("Please enter a number");
+            string userInput = Console.ReadLine();
+
+            bool isdouble = Double.TryParse(userInput, out double newDouble);
+            
+            if (isdouble)
+            {
+                return newDouble;
+            }
+            else
+            {
+                throw new FormatException();
+            }
         }
 
         public static int GetAction()
         {
-            throw new NotImplementedException();
+            System.Console.WriteLine("Please enter '1' to add, '2' to subtract, '3' to multiuply or '4' to divide");
+            string actionstring = Console.ReadLine();
+
+            bool isint = int.TryParse(actionstring, out int action1);
+
+            if (!isint)
+
+            {
+                System.Console.WriteLine("Please enter '1' to add, '2' to subtract, '3' to multiuply or '4' to divide");
+                throw new FormatException();
+                
+            }
+           
+            else
+            {
+                if (action1 <5 && action1 >0)
+                {
+                    return action1;
+                }
+                else
+                {
+                    System.Console.WriteLine("Please enter '1' to add, '2' to subtract, '3' to multiuply or '4' to divide");
+                    throw new FormatException();
+                    
+                }
+            }
+         
+
         }
 
         public static double DoAction(double x, double y, int z)
         {
-            throw new NotImplementedException();
-        }
+            
+            if (z == 1)
+            {
+                return x+y;
+            }
+            else if (z == 2)
+            {
+                return y-x;
+            }
+            else if (z == 3)
+            {
+                return x*y;
+            }
+            else if (z == 4)
+            {
+                return x/y;
+            }
+            else
+            {
+                throw new FormatException();
+        }   }
     }
 }

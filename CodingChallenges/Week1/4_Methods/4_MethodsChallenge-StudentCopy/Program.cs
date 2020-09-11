@@ -78,7 +78,6 @@ namespace _4_MethodsChallenge
                 {
                     System.Console.WriteLine("Please enter '1' to add, '2' to subtract, '3' to multiuply or '4' to divide");
                     throw new FormatException();
-                    
                 }
             }
          
